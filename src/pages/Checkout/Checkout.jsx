@@ -7,9 +7,9 @@ const Checkout = () => {
 
     const service = useLoaderData()
 
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
-    const { _id,title, price } = service
+    const { _id, title, price, img } = service
 
     const handleBooking = event => {
         event.preventDefault()
@@ -20,20 +20,37 @@ const Checkout = () => {
         const date = form.date.value
 
         const order = {
-            customerName : name,
+            customerName: name,
             email,
             date,
             service: title,
             service_id: _id,
-            price: price
+            price: price,
+            img
         }
 
         console.log(order)
+
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if(data.insertedId){
+                    alert('Your Order has been added successfully')
+                }
+            })
+
     }
 
     return (
         <div>
-            <h4>Book Now: {title}</h4>
+            <h4 className="text-3xl font-bold text-center">Book Now: {title}</h4>
             <div className="card-body">
                 <form onSubmit={handleBooking}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
