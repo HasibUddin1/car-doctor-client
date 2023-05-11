@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import BookingTable from "./BookingTable";
+import Swal from "sweetalert2";
 
 
 const Bookings = () => {
@@ -20,6 +21,42 @@ const Bookings = () => {
             })
     }, [])
 
+    const handleDelete = id => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Swal.fire(
+                //     'Deleted!',
+                //     'Your file has been deleted.',
+                //     'success'
+                // )
+                fetch(`http://localhost:5000/bookings/${id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                            const remaining = bookings.filter(booking => booking._id !== id)
+                            setBookings(remaining)
+                        }
+                    })
+            }
+        })
+    }
+
     return (
         <div className="mt-20 mb-20">
             <div className="overflow-x-auto w-full">
@@ -32,7 +69,7 @@ const Bookings = () => {
                                     <input type="checkbox" className="checkbox" />
                                 </label>
                             </th>
-                            <th>Name</th>
+                            <th>Service Image</th>
                             <th>Price</th>
                             <th>Service Category</th>
                             <th>Date</th>
@@ -44,6 +81,7 @@ const Bookings = () => {
                             bookings.map(booking => <BookingTable
                                 key={booking._id}
                                 booking={booking}
+                                handleDelete={handleDelete}
                             ></BookingTable>)
                         }
                     </tbody>
