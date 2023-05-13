@@ -11,6 +11,7 @@ const NavigationBar = () => {
         logOut()
         .then(() => {
             alert('User has been logged out successfully')
+            localStorage.removeItem('car-access-token')
         })
         .catch(error => {
             console.log(error)
