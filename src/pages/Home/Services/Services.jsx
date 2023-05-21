@@ -6,10 +6,12 @@ const Services = () => {
 
     const [services, setServices] = useState([])
 
+    const [asc, setAsc] = useState(true)
+
     useEffect(() => {
-        fetch('https://car-doctor-server-tawny-mu.vercel.app/services')
-        .then(res => res.json())
-        .then(data => setServices(data))
+        fetch(`https://car-doctor-server-tawny-mu.vercel.app/services?sort=${asc? 'asc' : 'desc'}`)
+            .then(res => res.json())
+            .then(data => setServices(data))
     }, [])
 
     return (
@@ -18,6 +20,10 @@ const Services = () => {
                 <h1 className="text-orange-600 text-3xl font-bold">Service</h1>
                 <h1 className="text-5xl font-bold">Our Service Area</h1>
                 <p>the majority have suffered alteration in some form, by injected humour, or randomised words which don&apos;t look even slightly believable. </p>
+                <button
+                    className="btn btn-primary"
+                    onClick={() => setAsc(!asc)}
+                >{asc ? 'Price: Low to High' : 'Price: High to Low'}</button>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-9/12 mx-auto mb-10">
                 {
