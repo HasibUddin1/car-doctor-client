@@ -9,10 +9,10 @@ const Services = () => {
     const [asc, setAsc] = useState(true)
 
     useEffect(() => {
-        fetch(`https://car-doctor-server-tawny-mu.vercel.app/services?sort=${asc? 'asc' : 'desc'}`)
+        fetch(`https://car-doctor-server-tawny-mu.vercel.app/services?sort=${asc ? 'asc' : 'desc'}`)
             .then(res => res.json())
             .then(data => setServices(data))
-    }, [])
+    }, [asc])
 
     return (
         <div>
