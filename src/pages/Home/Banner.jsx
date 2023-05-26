@@ -27,7 +27,7 @@ const Banner = () => {
                     </div>
                 </div>
                 <div id="slide2" className="carousel-item relative w-full h-[800px]">
-                    <img src={banner2} className="w-full" />
+                    <img src={banner2} className="w-full rounded-xl" />
                     <div className="absolute flex items-center ps-12 left-0 top-0  bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] h-full w-full rounded-xl">
                         <div className='text-white w-1/2 space-y-7'>
                             <h1 className='text-6xl font-bold'>Affordable Price For Car Servicing</h1>
@@ -44,7 +44,7 @@ const Banner = () => {
                     </div>
                 </div>
                 <div id="slide3" className="carousel-item relative w-full h-[800px]">
-                    <img src={banner3} className="w-full" />
+                    <img src={banner3} className="w-full rounded-xl" />
                     <div className="absolute flex items-center ps-12 left-0 top-0  bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] h-full w-full rounded-xl">
                         <div className='text-white w-1/2 space-y-7'>
                             <h1 className='text-6xl font-bold'>Affordable Price For Car Servicing</h1>
@@ -61,7 +61,7 @@ const Banner = () => {
                     </div>
                 </div>
                 <div id="slide4" className="carousel-item relative w-full h-[800px]">
-                    <img src={banner4} className="w-full" />
+                    <img src={banner4} className="w-full rounded-xl" />
                     <div className="absolute flex items-center ps-12 left-0 top-0  bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] h-full w-full rounded-xl">
                         <div className='text-white w-1/2 space-y-7'>
                             <h1 className='text-6xl font-bold'>Affordable Price For Car Servicing</h1>
@@ -78,7 +78,7 @@ const Banner = () => {
                     </div>
                 </div>
                 <div id="slide5" className="carousel-item relative w-full h-[800px]">
-                    <img src={banner5} className="w-full" />
+                    <img src={banner5} className="w-full rounded-xl" />
                     <div className="absolute flex items-center ps-12 left-0 top-0  bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] h-full w-full rounded-xl">
                         <div className='text-white w-1/2 space-y-7'>
                             <h1 className='text-6xl font-bold'>Affordable Price For Car Servicing</h1>
@@ -95,7 +95,7 @@ const Banner = () => {
                     </div>
                 </div>
                 <div id="slide6" className="carousel-item relative w-full h-[800px]">
-                    <img src={banner6} className="w-full" />
+                    <img src={banner6} className="w-full rounded-xl" />
                     <div className="absolute flex items-center ps-12 left-0 top-0  bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)] h-full w-full rounded-xl">
                         <div className='text-white w-1/2 space-y-7'>
                             <h1 className='text-6xl font-bold'>Affordable Price For Car Servicing</h1>
